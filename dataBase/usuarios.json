@@ -1,0 +1,26 @@
+[
+    {
+        "nombre": "pepe",
+        "color": "red",
+        "email": "pepe@gmail.com",
+        "edad": 32
+    },
+    {
+        "nombre": "nestor",
+        "color": "amarillo",
+        "email": "nestor@gmail.com",
+        "edad": 39
+    },
+    {
+        "nombre": "tony",
+        "color": "verde",
+        "email": "tony@gmail.com",
+        "edad": 29
+    },
+    {
+        "nombre": "edu",
+        "color": "azul",
+        "email": "edu@gmail.com",
+        "edad": 23
+    }
+]

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>register</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  </head>
+  <body>
+
+  <div class="conteiner d-flex justify-content-center">
+    <form action="/users/login" method="POST">
+      <div class="form-group mb-3 row">
+        <label>Ingrese su nombre</label>
+        <input type="text" name="name" class="form-control <%= locals.errors && errors.name? 'is-invalid' : null %> " value="<%= locals.oldData? oldData.name : null %>">
+        
+          <% if (locals.errors && errors.name) { %>
+           <div class="text-danger">
+            <%= errors.name.msg %> 
+           </div>
+          <% } %>
+        
+      </div>
+      <div class="form-group mb-3 row">
+        <label for="">Ingrese su email</label>
+        <input type="text" name="email" class="form-control <%= locals.errors && errors.email? 'is-invalid' : null %>" value="<%= locals.oldData? oldData.email : null %>">
+        <% if (locals.errors && errors.email) { %>
+          <div class="text-danger">
+           <%= errors.email.msg %> 
+          </div>
+         <% } %>
+      </div>
+      <div class="form-group mb-3 row">
+        <label for="">Ingrese su edad</label>
+        <input type="text" name="age" class="form-control <%= locals.errors && errors.age? 'is-invalid' : null %>" value="<%= locals.oldData? oldData.age : null %>">
+        <% if (locals.errors && errors.age) { %>
+          <div class="text-danger">
+           <%= errors.age.msg %> 
+          </div>
+         <% } %>
+      </div>
+
+      <div  class="form-group mb-3 row">
+        <label for="">Elija un color</label>
+        
+        
+        <select name="color" class="form-select <%= locals.errors && errors.color? 'is-invalid' : null %>">
+          <option value="">Elija un color</option>
+          
+          <option value="Rojo">Rojo</option>
+          <option value="Azul">Azul</option>
+          <option value="Amarillo">Amarillo</option>
+          <option value="Verde">Verde</option>
+          <option value="Negro">Negro</option>
+          <option value="Blanco">Blanco</option>
+
+        </select> 
+        <% if (locals.errors && errors.color) { %>
+          <div class="text-danger">
+           <%= errors.color.msg %> 
+          </div>
+         <% } %> 
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </div>
+  </body>
+</html>
