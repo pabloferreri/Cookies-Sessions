@@ -1,18 +1,22 @@
 const path = require('path');
 
 const {validationResult} = require("express-validator")
+const session = require('express-session');
+const { start } = require('repl');
 
 const userController = {
 
     register: (req,res)=> {
-        res.render('register')
+        res.render('login')
     },
-    processRegister: (req,res)=>{
+    processLogin: (req,res)=>{
 
         const resultValidation = validationResult(req)
 
+      
+
         if (resultValidation.errors.length > 0) {
-            return res.render('register', { errors: resultValidation.mapped(), oldData: req.body})
+            return res.render('login', { errors: resultValidation.mapped(), oldData: req.body})
         }else{
             let user = {
                 name: req.body.name,
@@ -20,11 +24,23 @@ const userController = {
                 email: req.body.email,
                 age: req.body.age
             }
-    
-            return res.render('usuario',{user:user});
-        }
 
-        
+            req.session.name = req.body.name
+            req.session.color = req.body.color
+            
+            
+            return res.render('user',{user:user});
+        }
+   
+    },
+    show: (req,res)=>{        
+        console.log("Agradecimiento")
+        console.log(req.session.name)
+        if (req.session.name) {
+            return res.render('thankYou',{usuario: req.session})
+        } else {
+            return res.send('No se encuentra logueado')
+        }
     }
     
 }

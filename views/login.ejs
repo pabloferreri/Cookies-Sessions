@@ -46,12 +46,12 @@
         <select name="color" class="form-select <%= locals.errors && errors.color? 'is-invalid' : null %>">
           <option value="">Elija un color</option>
           
-          <option value="Rojo">Rojo</option>
-          <option value="Azul">Azul</option>
-          <option value="Amarillo">Amarillo</option>
-          <option value="Verde">Verde</option>
-          <option value="Negro">Negro</option>
-          <option value="Blanco">Blanco</option>
+          <option value="red">Rojo</option>
+          <option value="blue">Azul</option>
+          <option value="yellow">Amarillo</option>
+          <option value="green">Verde</option>
+          <option value="black">Negro</option>
+          <option value="white">Blanco</option>
 
         </select> 
         <% if (locals.errors && errors.color) { %>
@@ -60,6 +60,20 @@
           </div>
          <% } %> 
       </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Recordar Color
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Olvidar color
+        </label>
+      </div>
+      
       <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
   </div>

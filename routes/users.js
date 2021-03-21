@@ -19,6 +19,8 @@ const validations = [
 /* GET users listing. */
 router.get("/", userController.register)
 
-router.post("/login",validations, userController.processRegister)
+router.post("/login",validations, userController.processLogin)
+
+router.get("/thankYou", userController.show)
 
 module.exports = router;
