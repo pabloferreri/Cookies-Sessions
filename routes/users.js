@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const userController = require('../controllers/userController')
+const remindMiddleware = require("../middlewares/remindMiddleware")
 
 // express-validator 
 const { body } = require("express-validator");
@@ -19,8 +20,8 @@ const validations = [
 /* GET users listing. */
 router.get("/", userController.register)
 
-router.post("/login",validations, userController.processLogin)
+router.post("/login",validations, remindMiddleware,userController.processLogin)
 
-router.get("/thankYou", userController.show)
+router.get("/thankYou", remindMiddleware,userController.show)
 
 module.exports = router;

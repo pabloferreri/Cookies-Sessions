@@ -25,8 +25,16 @@ const userController = {
                 age: req.body.age
             }
 
+            console.log(req.body.remind)
+
+           
+           
             req.session.name = req.body.name
             req.session.color = req.body.color
+
+            if (req.body.remind != undefined) {
+                res.cookie('favoriteColor', user.color)
+            }
             
             
             return res.render('user',{user:user});
